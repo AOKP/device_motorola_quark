@@ -149,7 +149,8 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.apq8084
+    camera.apq8084 \
+    libprotobuf-cpp-full
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -182,7 +183,10 @@ PRODUCT_PACKAGES += \
     gralloc.apq8084 \
     hwcomposer.apq8084 \
     libgenlock \
-    memtrack.apq8084
+    memtrack.apq8084 \
+    liboverlay \
+    libqdutils \
+    libqdMetaData
 
 # Gello
 PRODUCT_PACKAGES += \
@@ -195,7 +199,8 @@ PRODUCT_COPY_FILES += \
 # IPv6 tethering
 PRODUCT_PACKAGES += \
     ebtables \
-    ethertypes
+    ethertypes \
+    libqsap_sdk
 
 # IRSC
 PRODUCT_COPY_FILES += \
@@ -280,7 +285,10 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_COPY_FILES += \
-   $(LOCAL_PATH)/configs/qcril.db:system/etc/ril/qcril.db
+    $(LOCAL_PATH)/configs/dsi_config.xml:system/etc/data/dsi_config.xml \
+    $(LOCAL_PATH)/configs/netmgr_config.xml:system/etc/data/netmgr_config.xml \
+    $(LOCAL_PATH)/configs/qcril.db:system/etc/motorola/qcril.db \
+    $(LOCAL_PATH)/configs/qmi_config.xml:system/etc/data/qmi_config.xml
 
 PRODUCT_PACKAGES += \
     librmnetctl
