@@ -3,10 +3,9 @@ Device configuration for DROID Turbo / Moto MAXX (Quark)
 Copyright 2016 - The CyanogenMod Project
 
 **I use this tree to build in Nougat cm-14.x and cm-14.x base source**
-This tree works prefect in crDroid Nougat, may need some minor cosmetic Strings changes in **cm.mk**  BUILD_DISPLAY_ID and in **cmactions/src/com/cyanogenmod/settings/device/TouchscreenGesturePreferenceFragment.java** crdroid_settings
 
 How to build this...
-The below may be out of data check XDA thread to make shore the descrived tree below are the one be used today...
+The below may be out of date, check XDA thread to make sure the described trees below are the ones being used today...
 Use the below in /home/user/source/.repo/local_manifests/roomservice.xml
 
 	<?xml version="1.0" encoding="UTF-8"?>
