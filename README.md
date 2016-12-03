@@ -1,4 +1,4 @@
-Device configuration for Moto MAXX (Quark)
+Device configuration for DROID Turbo / Moto MAXX (Quark)
 ==============================
 Copyright 2016 - The CyanogenMod Project
 
@@ -16,11 +16,11 @@ Use the below in /home/user/source/.repo/local_manifests/roomservice.xml
 	  <project name="CyanogenMod/android_device_qcom_common" path="device/qcom/common" remote="github" revision="cm-14.1" />
 
 	  <!-- Device/kernel/vendor-->
-	  <project name="bhb27/device_motorola_quark" path="device/motorola/quark" remote="github" revision="CR-N" />
-	  <project name="bhb27/BHB27Kernel" path="kernel/motorola/apq8084" remote="github" revision="CR-N" />
-	  <project name="bhb27/proprietary_vendor_motorola" path="vendor/motorola" remote="github" revision="CR-N" />
+	  <project name="roodbuild/device_motorola_quark" path="device/motorola/quark" remote="github" revision="aokp7" />
+	  <project name="bhb27/BHB27Kernel" path="kernel/motorola/apq8084" remote="github" revision="cm-14.1" />
+	  <project name="neporood/proprietary_vendor_motorola" path="vendor/motorola" remote="github" revision="bliss6" />
 
-	  <!-- Some CM project are out of date I update they here-->
+	  <!-- Some CM projects are out of date, use from BHB -->
 	  <remove-project name="CyanogenMod/android_hardware_qcom_display" groups="pdk,qcom,qcom_display" revision="cm-14.1-caf-8084" />
 	  <project path="hardware/qcom/display-caf/apq8084" name="bhb27/android_hardware_qcom_display" remote="github" revision="cm-14.1-caf-8084" />
 	  <remove-project name="CyanogenMod/android_hardware_qcom_media" groups="pdk,qcom,qcom_media" revision="cm-14.1-caf-8084" />
@@ -28,7 +28,7 @@ Use the below in /home/user/source/.repo/local_manifests/roomservice.xml
 
 	</manifest>
 
-The Motorola Moto Maxx (codenamed _"quark"_) is a high-end smartphone from Motorola mobility.
+The Motorola Droid Turbo/Moto Maxx (codenamed _"quark"_) is a high-end smartphone from Motorola mobility.
 It was announced on November 2014.
 
 Basic   | Spec Sheet
@@ -38,7 +38,7 @@ Chipset | Qualcomm Snapdragon 805
 GPU     | Adreno 420
 Memory  | 3GB RAM
 Shipped Android Version | 4.4.4
-Storage | 64 GB
+Storage | 32/64 GB
 MicroSD | No
 Battery | Non-removable Li-Po 3900 mAh battery
 Display | 1440 x 2560 pixels, 5.2 inches (~565 ppi pixel density)
