@@ -8,25 +8,31 @@ cp /system/etc/sp/sp_lib /system/etc/sp/libsupol.so
 chmod 755 /system/etc/sp/libsupol.so
 chmod 755 /system/etc/sp/sp_bin
 LD_LIBRARY_PATH=/system/etc/sp/ /system/etc/sp/sp_bin --live \
-	"allow qti_init_shell selinuxfs:file { write };" \
-	"allow qti_init_shell kernel:security { load_policy read_policy };" \
-	"allow untrusted_app system_data_file:file { unlink };" \
-	"allow untrusted_app cache_file:file { getattr open write };" \
-	"allow qti_init_shell block_device:blk_file { open read };" \
-	"allow qti_init_shell system_data_file:file { append write };" \
-	"allow qti_init_shell labeledfs:filesystem { remount unmount };" \
-	"allow qti_init_shell su_exec:file { getattr setattr };" \
-	"allow qti_init_shell default_prop:property_service { set };" \
-	"allow untrusted_app superuser_device:sock_file { write };" \
-	"allow priv_app superuser_device:sock_file { write };" \
-	"allow priv_app sudaemon:unix_stream_socket { connectto };" \
-	"allow untrusted_app sudaemon:unix_stream_socket { connectto };" \
-	"allow untrusted_app anr_data_file:dir { read };" \
+	"allow init shell_exec:file { execute_no_trans };" \
+	"allow init system_file:file { execute_no_trans };" \
+	"allow init thermal-engine_exec:file { execute_no_trans };" \
 	"allow priv_app anr_data_file:dir { read };" \
 	"allow priv_app su_exec:file { execute write getattr setattr execute_no_trans };" \
+	"allow priv_app sudaemon:unix_stream_socket { connectto };" \
+	"allow priv_app superuser_device:sock_file { write };" \
 	"allow priv_app system_data_file:file { getattr open read };" \
-	"allow untrusted_app system_data_file:file { getattr open read };" \
-	"allow untrusted_app su_exec:file { execute write getattr setattr execute_no_trans };"
+	"allow qti_init_shell block_device:blk_file { open read };" \
+	"allow qti_init_shell default_prop:property_service { set };" \
+	"allow qti_init_shell kernel:security { load_policy read_policy };" \
+	"allow qti_init_shell labeledfs:filesystem { remount unmount };" \
+	"allow qti_init_shell selinuxfs:file { write };" \
+	"allow qti_init_shell su_exec:file { getattr setattr };" \
+	"allow qti_init_shell system_data_file:file { append write };" \
+	"allow toolbox default_prop:property_service { set };" \
+	"allow toolbox labeledfs:filesystem { remount };" \
+	"allow toolbox system_file:dir { add_name write };" \
+	"allow toolbox system_file:file { create setattr write };" \
+	"allow untrusted_app anr_data_file:dir { open read };" \
+	"allow untrusted_app cache_file:file { getattr open write };" \
+	"allow untrusted_app su_exec:file { execute write getattr setattr execute_no_trans };" \
+	"allow untrusted_app sudaemon:unix_stream_socket { connectto };" \
+	"allow untrusted_app superuser_device:sock_file { write };" \
+	"allow untrusted_app system_data_file:file { getattr open read unlink };"
 
 	echo 'post_init: patch sepolicy ok' > /dev/kmsg;
 
@@ -78,10 +84,10 @@ fi
 ## Clean Verizon blobs on others devices
 if [ "$clean" == 1 ]; then
 
-	# stop IMS services Not need for others then VZW users
-	stop imsqmidaemon;
-	stop imsdatadaemon;
-	setprop net.lte.volte_call_capable false
+	# stop IMS services Not need for others then VZW users * have disable volte.rc when they are enable remove the #
+#	stop imsqmidaemon;
+#	stop imsdatadaemon;
+#	setprop net.lte.volte_call_capable false
 
 	# delete main folders
 	app="system/app";
@@ -112,4 +118,3 @@ mount -o ro,remount /system;
 umount /system;
 
 exit
-
