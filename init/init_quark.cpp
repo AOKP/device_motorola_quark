@@ -1,6 +1,5 @@
 /*
    Copyright (c) 2016, The Linux Foundation. All rights reserved.
-
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
    met:
@@ -13,7 +12,6 @@
     * Neither the name of The Linux Foundation nor the names of its
       contributors may be used to endorse or promote products derived
       from this software without specific prior written permission.
-
    THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
    WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
@@ -94,8 +92,8 @@ void vendor_load_properties()
         property_set("ro.fsg-id", "verizon");
         property_set("ro.telephony.default_network", "10");
         property_set("telephony.lteOnCdmaDevice", "1");
-        property_set("ro.build.description", "quark_verizon-user 5.1 SU4TL-44 44 release-keys");
-        property_set("ro.build.fingerprint", "motorola/quark_verizon/quark:5.1/SU4TL-44/44:user/release-keys");
+        property_set("ro.build.description", "quark_verizon-user 6.0.1 MCG24.251-5 9 release-keys");
+        property_set("ro.build.fingerprint", "motorola/quark_verizon/quark:6.0.1/MCG24.251-5/9:user/release-keys");
         property_set("ro.telephony.default_cdma_sub", "0");
         property_set("ro.cdma.home.operator.numeric", "311480");
         property_set("ro.cdma.home.operator.alpha", "Verizon");
@@ -147,8 +145,8 @@ void vendor_load_properties()
         property_set("ro.com.google.clientidbase.ms", "android-verizon");
         property_set("ro.com.google.clientidbase.am", "android-verizon");
         property_set("ro.com.google.clientidbase.yt", "android-verizon");
-        property_set("ro.build.description", "quark_verizon-user 5.1 SU4TL-44 44 release-keys");
-        property_set("ro.build.fingerprint", "motorola/quark_verizon/quark:5.1/SU4TL-44/44:user/release-keys");
+        property_set("ro.build.description", "quark_verizon-user 6.0.1 MCG24.251-5 9 release-keys");
+        property_set("ro.build.fingerprint", "motorola/quark_verizon/quark:6.0.1/MCG24.251-5/9:user/release-keys");
         INFO("Set properties for \"verizon_gsm\"!\n");
     } else if (fsgid =="lra") {
         // XT1250 - Moto MAXX
@@ -211,8 +209,8 @@ void vendor_load_properties()
 	property_set("ro.com.google.clientidbase.am", "android-motorola");
 	property_set("ro.com.google.clientidbase.yt", "android-motorola");
 	property_set("persist.radio.redir_party_num", "0");
-        property_set("ro.build.description", "quark_retbr-user 6.0.1 MPG24.107-70.2 2 release-keys");
-        property_set("ro.build.fingerprint", "motorola/quark_retbr/quark_umts:6.0.1/MPG24.107-70.2/2:user/release-keys");
+        property_set("ro.build.description", "quark_retbr-user 6.0.1 MPGS24.107-70.2-2 2 release-keys");
+        property_set("ro.build.fingerprint", "motorola/quark_retbr/quark_umts:6.0.1/MPGS24.107-70.2-2/2:user/release-keys");
         INFO("Set properties for \"singlela\"!\n");
     }
 }
