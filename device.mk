@@ -149,8 +149,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.apq8084 \
-    libprotobuf-cpp-full
+    camera.apq8084
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -183,14 +182,11 @@ PRODUCT_PACKAGES += \
     gralloc.apq8084 \
     hwcomposer.apq8084 \
     libgenlock \
-    memtrack.apq8084 \
-    liboverlay \
-    libqdutils \
-    libqdMetaData
+    memtrack.apq8084
 
 # Gello
-PRODUCT_PACKAGES += \
-    Gello
+#PRODUCT_PACKAGES += \
+#    Gello
 
 # IDC
 PRODUCT_COPY_FILES += \
