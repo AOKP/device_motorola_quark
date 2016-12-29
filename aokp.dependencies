@@ -1,0 +1,8 @@
+[
+  {
+    "remote": "bhb27",
+    "repository": "BHB27Kernel",
+    "target_path": "kernel/motorola/apq8084",
+    "revision":   "cm-14.1"
+  }
+]
