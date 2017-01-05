@@ -4,5 +4,11 @@
     "repository": "bhb27/BHB27Kernel",
     "target_path": "kernel/motorola/apq8084",
     "branch": "cm-14.1"
+  },
+  {
+    "remote": "cm",
+    "repository": "LineageOS/android_device_qcom_common",
+    "target_path": "device/qcom/common",
+    "branch": "cm-14.1"
   }
 ]
