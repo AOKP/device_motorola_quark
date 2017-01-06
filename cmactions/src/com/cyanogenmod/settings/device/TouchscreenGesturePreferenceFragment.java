@@ -16,12 +16,33 @@
 
 package com.cyanogenmod.settings.device;
 
+import android.app.AlertDialog;
+import android.app.NotificationManager;
 import android.os.Bundle;
+<<<<<<< HEAD
+=======
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.provider.Settings;
+import android.support.v7.preference.Preference;
+>>>>>>> d78cbe7... Quark: CMActions: Add Flipdown do not disturb and Pickup stop ring
 import android.support.v7.preference.PreferenceCategory;
 import android.support.v14.preference.PreferenceFragment;
 
 public class TouchscreenGesturePreferenceFragment extends PreferenceFragment {
     private static final String CATEGORY_AMBIENT_DISPLAY = "ambient_display_key";
+<<<<<<< HEAD
+=======
+    private static final String SWITCH_AMBIENT_DISPLAY = "ambient_display_switch";
+    private static final String SWITCH_GESTURE_PICKUP = "gesture_pick_up";
+    private static final String SWITCH_GESTURE_IR = "gesture_ir_wake_up";
+    private SwitchPreference mFlipPref;
+    private NotificationManager mNotificationManager;
+    private boolean mFlipClick = false;
+
+    private SwitchPreference mSwitchAmbientDisplay, mSwitchGestureIr, mSwitchGesturePick;
+>>>>>>> d78cbe7... Quark: CMActions: Add Flipdown do not disturb and Pickup stop ring
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -29,10 +50,71 @@ public class TouchscreenGesturePreferenceFragment extends PreferenceFragment {
         PreferenceCategory ambientDisplayCat = (PreferenceCategory)
                 findPreference(CATEGORY_AMBIENT_DISPLAY);
         if (ambientDisplayCat != null) {
+<<<<<<< HEAD
             String crdroid_settings = getString(R.string.crdroid_settings);
             ambientDisplayCat.setEnabled(CMActionsSettings.isDozeEnabled(getActivity().getContentResolver()));
             if (!CMActionsSettings.isDozeEnabled(getActivity().getContentResolver()))
                 ambientDisplayCat.setTitle(getString(R.string.ambient_display_title) + " " + getString(R.string.feedback_intensity_none) + " " + getString(R.string.enable_in_setting_display, crdroid_settings));
+=======
+            boolean DozeValue = CMActionsSettings.isDozeEnabled(getActivity().getContentResolver());
+            mSwitchGestureIr.setEnabled(DozeValue);
+            mSwitchGesturePick.setEnabled(DozeValue);
+        }
+        mNotificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        mFlipPref = (SwitchPreference) findPreference("gesture_flip_to_mute");
+        mFlipPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            public boolean onPreferenceClick(Preference preference) {
+                if (!mNotificationManager.isNotificationPolicyAccessGranted()) {
+                    mFlipPref.setChecked(false);
+                    new AlertDialog.Builder(getContext())
+                        .setTitle(getString(R.string.flip_to_mute_title))
+                        .setMessage(getString(R.string.dnd_access))
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                mFlipClick = true;
+                                startActivity(new Intent(
+                                   android.provider.Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS));
+                            }
+                        }).show();
+                }
+                return true;
+            }
+       });
+
+       //Users may deny DND access after giving it
+       if (!mNotificationManager.isNotificationPolicyAccessGranted()) {
+           mFlipPref.setChecked(false);
+       }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateState();
+    }
+
+    private void updateState() {
+        if (mSwitchAmbientDisplay != null) {
+            int DozeValue = Settings.Secure.getInt(getActivity().getContentResolver(), Settings.Secure.DOZE_ENABLED,
+                getActivity().getResources().getBoolean(
+                    com.android.internal.R.bool.config_doze_enabled_by_default) ? 1 : 0);
+            mSwitchAmbientDisplay.setChecked(DozeValue != 0);
+        }
+        if (mNotificationManager.isNotificationPolicyAccessGranted() && mFlipClick) {
+            mFlipPref.setChecked(true);
+        }
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        final String key = preference.getKey();
+        if (preference == mSwitchAmbientDisplay) {
+            boolean DozeValue = (Boolean) objValue;
+            Settings.Secure.putInt(getActivity().getContentResolver(), Settings.Secure.DOZE_ENABLED, DozeValue ? 1 : 0);
+            mSwitchGestureIr.setEnabled(DozeValue);
+            mSwitchGesturePick.setEnabled(DozeValue);
+>>>>>>> d78cbe7... Quark: CMActions: Add Flipdown do not disturb and Pickup stop ring
         }
     }
 }

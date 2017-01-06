@@ -7,15 +7,19 @@
     >
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
+<<<<<<< HEAD
     
     <uses-sdk
         android:minSdkVersion="21"
         android:targetSdkVersion="21" />
+=======
+>>>>>>> d78cbe7... Quark: CMActions: Add Flipdown do not disturb and Pickup stop ring
 
     <application
         android:allowBackup="true"
