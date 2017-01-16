@@ -172,7 +172,20 @@ TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 TARGET_BOOTANIMATION_USE_RGB565 := true
 
 # Snapdragon LLVM Compiler
-# TARGET_USE_SDCLANG := true
+TARGET_USE_SDCLANG := true
+SDCLANG_LTO_DEFS := device/qcom/common/sdllvm-lto-defs.mk
+
+# Set path to local tool chain
+#SDCLANG_PATH := $(ANDROID_BUILD_TOP)/prebuilts/clang/linux-x86/host/sdclang-3.8/linux-x86_64/bin
+
+# Optimization Flags
+APP_CFLAGS="-Ofast -mtune=krait"
+#APP_CFLAGS="-O3 -mtune=krait"
+
+### Other Flags ###
+#CLANG_QCOM_COMPILE_ART := true
+#CLANG_QCOM_COMPILE_BIONIC := true
+#CLANG_QCOM_COMPILE_MIXED := true
 
 # Time
 BOARD_USES_QC_TIME_SERVICES := true
