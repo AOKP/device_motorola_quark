@@ -542,4 +542,8 @@
     <bool name="config_enableAutoPowerModes">true</bool>
 
     <bool name="config_volte_preferred">true</bool>
+
+ <!-- Hardware keys on/off option -->
+      <bool name="config_hwKeysPref">true</bool>
+
 </resources>
