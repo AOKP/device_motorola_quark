@@ -179,8 +179,8 @@ SDCLANG_LTO_DEFS := device/qcom/common/sdllvm-lto-defs.mk
 #SDCLANG_PATH := $(ANDROID_BUILD_TOP)/prebuilts/clang/linux-x86/host/sdclang-3.8/linux-x86_64/bin
 
 # Optimization Flags
-APP_CFLAGS="-Ofast -mtune=krait"
-#APP_CFLAGS="-O3 -mtune=krait"
+#APP_CFLAGS="-Ofast -mtune=krait"
+APP_CFLAGS="-O3 -mtune=krait"
 
 ### Other Flags ###
 #CLANG_QCOM_COMPILE_ART := true
