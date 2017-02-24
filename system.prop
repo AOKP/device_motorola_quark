@@ -27,7 +27,7 @@ ro.sf.lcd_density=560
 ro.panel.mountflip=3
 
 # FRP
-ro.frp.pst=/dev/block/platform/msm_sdcc.1/by-name/frp
+#ro.frp.pst=/dev/block/platform/msm_sdcc.1/by-name/frp
 
 # GLES doesn't support secure display, to allow google play movies
 # and other apps that require a secure display we need to enable this:
