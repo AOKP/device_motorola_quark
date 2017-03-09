@@ -3,7 +3,7 @@
     "remote": "github",
     "repository": "bhb27/BHB27Kernel",
     "target_path": "kernel/motorola/apq8084",
-    "branch": "cm-14.1"
+    "branch": "N"
   },
   {
     "remote": "cm",
